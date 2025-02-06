@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Web\HomeController;
 use App\Http\Web\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,4 @@ use Illuminate\Support\Facades\Route;
 //Static pages
 
 Route::get('/contact', [StaticPageController::class, 'contact'])->name('contact');
+Route::get('/', [HomeController::class, 'home'])->name('home');

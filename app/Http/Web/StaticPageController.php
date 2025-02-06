@@ -6,7 +6,7 @@ class StaticPageController
 {
 
     public function contact(){
-        return view('static.contact');
+        return view('web.static.contact');
     }
 
 }
