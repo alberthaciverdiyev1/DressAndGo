@@ -60,7 +60,7 @@ class Setting extends Page
                         ->columns(1),
 
                     Tabs\Tab::make('hidden')
-                        ->label(trans('Hidden Settings'))
+                        ->label(trans('Hide Pages'))
                         ->icon('heroicon-o-eye-slash')
                         ->schema(SettingFieldsForm::get($this->data, true))
                         ->columns(1),
@@ -85,12 +85,7 @@ class Setting extends Page
         $formData = $this->form->getState();
         \App\Models\Setting::updateOrCreate(
             [],
-            [
-                'az_content' => $formData['az_content'] ?? null,
-                'ru_content' => $formData['ru_content'] ?? null,
-                'en_content' => $formData['en_content'] ?? null,
-                'banner_image' => $formData['banner_image'] ?? null,
-            ]
+            $formData
         );
 
         Notification::make()

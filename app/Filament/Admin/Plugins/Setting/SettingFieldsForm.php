@@ -31,7 +31,7 @@ class SettingFieldsForm
                     continue;
                 }
                 if (!$onlyHidden && $isHidden) {
-                    continue; 
+                    continue;
                 }
 
                 $label = trans(ucwords(str_replace('_', ' ', $key)));
