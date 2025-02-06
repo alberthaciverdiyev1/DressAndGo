@@ -1,13 +1,5 @@
 <?php
 namespace App\Filament\Admin\Pages;
-//
-//use Filament\Pages\Page;
-//
-//class Setting extends Page
-//{
-//    protected static ?string $navigationIcon = 'heroicon-o-document-text';
-//
-//}
 
 
 use App\Filament\Admin\Plugins\Setting\SettingFieldsForm;
