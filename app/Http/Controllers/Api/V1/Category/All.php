@@ -10,7 +10,7 @@ class All
 {
     public function getAll(): AnonymousResourceCollection
     {
-        $categories = Category::whereNull('parent_id')->get();
+        $categories = Category::whereNull('parent_id')->whereNull('deleted_at')->get();
         return CategoryResource::collection($categories);
     }
 }

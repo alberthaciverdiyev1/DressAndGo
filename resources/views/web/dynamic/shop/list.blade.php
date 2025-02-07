@@ -43,78 +43,17 @@
                             <div class="widget-content">
                                 <h4 class="widget-title">Product Categories</h4>
                                 <ul class="categories-list">
+                                    @forelse($categories as $key => $category)
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check1">
-                                            <label class="form-check-label" for="check1">
-                                                Women's Clothing<span>45</span>
+                                            <input class="form-check-input" type="checkbox" id="{{$category['id']}}">
+                                            <label class="form-check-label" for="{{$category['id']}}">
+                                                {{$category['name']}}<span>{{$category['count']}}</span>
                                             </label>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check2">
-                                            <label class="form-check-label" for="check2">
-                                                Men's Clothing<span>40</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check3">
-                                            <label class="form-check-label" for="check3">
-                                                Formal Wear<span>35</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check4">
-                                            <label class="form-check-label" for="check4">
-                                                Footwear<span>59</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"  id="check5">
-                                            <label class="form-check-label" for="check5">
-                                                Accessories<span>74</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check6">
-                                            <label class="form-check-label" for="check6">
-                                                Maternity Wear<span>87</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check7">
-                                            <label class="form-check-label" for="check7">
-                                                Vintage Clothing<span>45</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check8">
-                                            <label class="form-check-label" for="check8">
-                                                Streetwear<span>88</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="check9">
-                                            <label class="form-check-label" for="check9">
-                                                Swimwear<span>19</span>
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @empty
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>
@@ -135,70 +74,18 @@
                             <div class="widget-content">
                                 <h4 class="widget-title">Brands</h4>
                                 <ul class="categories-list">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check1">
-                                            <label class="form-check-label" for="br_check1">
-                                                Nike<span>19</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check2">
-                                            <label class="form-check-label" for="br_check2">
-                                                Zara<span>55</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check3">
-                                            <label class="form-check-label" for="br_check3">
-                                                Denim<span>74</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check4">
-                                            <label class="form-check-label" for="br_check4">
-                                                Madame<span>12</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"  id="br_check5">
-                                            <label class="form-check-label" for="br_check5">
-                                                Max Mall<span>45</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check6">
-                                            <label class="form-check-label" for="br_check6">
-                                                BAGGIE<span>45</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check7">
-                                            <label class="form-check-label" for="br_check7">
-                                                Kolam<span>74</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="br_check8">
-                                            <label class="form-check-label" for="br_check8">
-                                                Sketcen<span>19</span>
-                                            </label>
-                                        </div>
-                                    </li>
+                                @forelse($brands as $key => $brand)
+
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="{{$brand['id']}}">
+                                                <label class="form-check-label" for="{{$brand['id']}}">
+                                                    {{$brand['name']}}<span>{{$brand['count']}}</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @empty
+                                @endforelse
                                 </ul>
                             </div>
                         </div>
