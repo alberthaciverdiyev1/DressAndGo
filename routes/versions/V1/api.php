@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     Route::post('/register', [\App\Http\Controllers\Api\V1\Auth\Register::class, 'register'])->name('register');
+    Route::get('/category', [\App\Http\Controllers\Api\V1\Category\All::class,'getAll'])->name('categories');
 });
 
 Route::middleware('auth:sanctum')->group(function () {

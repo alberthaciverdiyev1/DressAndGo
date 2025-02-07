@@ -252,69 +252,20 @@
         </div>
         <!--=== Category Slider ===-->
         <div class="category-slider-one" data-aos="fade-up" data-aos-delay="20" data-aos-duration="1200">
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-1.png')}}" alt="category image">
+
+            @forelse($categories as $key => $value)
+                <!--=== Category Item ===-->
+                <div class="category-item style-one text-center">
+                    <div class="category-img">
+                        <img src="{{$value['image']}}" alt="category image">
+                    </div>
+                    <div class="category-content">
+                        <a href="index.html" class="category-btn">{{$value['name']}}</a>
+                    </div>
                 </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Man Shirts</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-2.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Denim Jeans</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-3.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Casual Suit</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-4.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Summer Dress</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-5.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Sweaters</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-6.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Jackets</a>
-                </div>
-            </div>
-            <!--=== Category Item ===-->
-            <div class="category-item style-one text-center">
-                <div class="category-img">
-                    <img src="{{asset('images/category/category-4.png')}}" alt="category image">
-                </div>
-                <div class="category-content">
-                    <a href="index.html" class="category-btn">Summer Dress</a>
-                </div>
-            </div>
+            @empty
+            @endforelse
+
         </div>
     </section><!--====== End Category Section ======-->
     <!--====== Start Banner Section ======-->

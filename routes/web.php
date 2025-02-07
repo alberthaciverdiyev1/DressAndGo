@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Web\HomeController;
-use App\Http\Web\ShopController;
-use App\Http\Web\StaticPageController;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\ShopController;
+use App\Http\Controllers\Web\StaticPageController;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 

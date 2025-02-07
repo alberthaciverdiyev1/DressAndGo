@@ -24,6 +24,8 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('image')
+                    ->disk('public')
+                    ->directory('images/category')
                     ->image(),
                 Forms\Components\Select::make('parent_id')
                     ->options(fn()=> Category::where('parent_id', null)->get()->pluck('name', 'id'))
@@ -43,7 +45,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('parent_id')
+                Tables\Columns\TextColumn::make('parent.name')
                     ->searchable()
                 ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -59,7 +61,7 @@ class CategoryResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ReplicateAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Web;
+namespace App\Http\Controllers\Web;
 
 class StaticPageController
 {
