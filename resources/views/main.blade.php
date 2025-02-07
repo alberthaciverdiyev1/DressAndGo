@@ -104,7 +104,7 @@
             <div class="search-header-inner">
                 <!--=== Site Branding  ===-->
                 <div class="site-branding">
-                    <a href="index.html" class="brand-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Logo"></a>
+                    <a href="{{route('home')}}" class="brand-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Logo"></a>
                 </div>
                 <!--===  Product Search Category  ===-->
                 <div class="product-search-category">
@@ -143,7 +143,7 @@
             <!--=== Primary Menu ===-->
             <div class="primary-menu">
                 <div class="site-branding d-lg-none d-block">
-                    <a href="index.html" class="brand-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Logo"></a>
+                    <a href="{{route('home')}}" class="brand-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Logo"></a>
                 </div>
                 <!--=== Nav Inner Menu ===-->
                 <div class="nav-inner-menu">
@@ -210,10 +210,6 @@
                                         <nav class="main-menu">
                                             <ul>
                                                 <li class="menu-item has-children"><a href="#">Home</a>
-                                                    <ul class="sub-menu">
-                                                        <li><a href="index.html">Home 01</a></li>
-                                                        <li><a href="index-2.html">Home 02</a></li>
-                                                    </ul>
                                                 </li>
                                                 <li class="menu-item has-children"><a href="#">Shop</a>
                                                     <ul class="sub-menu">
@@ -278,36 +274,12 @@
                             <!--=== Main Menu ===-->
                             <nav class="main-menu d-none d-lg-block">
                                 <ul>
-                                    <li class="menu-item has-children"><a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home 01</a></li>
-                                            <li><a href="index-2.html">Home 02</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item has-children"><a href="#">Shop</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="shops-grid.html">Shop Grid</a></li>
-                                            <li><a href="shops.html">Shop left Sidebar</a></li>
-                                            <li><a href="shops-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="shop-details.html">Product Details</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="wishlists.html">Wishlist</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item has-children"><a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blogs.html">Our Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item has-children"><a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="faq.html">Faqs</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                    <li class="menu-item"><a href="{{route('home')}}">Home</a>  </li>
+                                    <li class="menu-item"><a href="{{route('shopList')}}">Shop</a>   </li>
+                                    <li class="menu-item"><a href="{{route('shopList')}}">Rent</a>   </li>
+                                    <li class="menu-item"><a href="{{route('home')}}">Blog</a>   </li>
+                                    <li class="menu-item"><a href="{{route('home')}}">About Us</a>   </li>
+                                    <li class="menu-item"><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -315,21 +287,26 @@
                 </div>
                 <!--=== Nav Right Item ===-->
                 <div class="nav-right-item style-one">
-                    <ul>
-                        <li>
-                            <div class="deals d-lg-block d-none"><i class="far fa-fire-alt"></i>Deal</div>
-                        </li>
-                        <li>
-                            <div class="wishlist-btn d-lg-block d-none"><i class="far fa-heart"></i><span class="pro-count">12</span></div>
-                        </li>
-                        <li>
-                            <div class="cart-button d-flex align-items-center">
-                                <div class="icon">
-                                    <i class="fas fa-shopping-bag"></i><span class="pro-count">01</span>
+                    @auth
+                        <ul>
+                            <li>
+                                <div class="deals d-lg-block d-none"><i class="far fa-fire-alt"></i>Deal</div>
+                            </li>
+                            <li>
+                                <div class="wishlist-btn d-lg-block d-none"><i class="far fa-heart"></i><span class="pro-count">12</span></div>
+                            </li>
+                            <li>
+                                <div class="cart-button d-flex align-items-center">
+                                    <div class="icon">
+                                        <i class="fas fa-shopping-bag"></i><span class="pro-count">01</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    @else
+                        <a href="{{route('login')}}" class="theme-btn style-one">Login</a>
+                    @endauth
+
                     <div class="navbar-toggler d-block d-lg-none">
                         <span></span>
                         <span></span>
@@ -360,7 +337,7 @@
                         <!--=== Footer Widget  ===-->
                         <div class="footer-widget about-company-widget mb-40" data-aos="fade-up" data-aos-delay="10" data-aos-duration="1000">
                             <div class="widget-content">
-                                <a href="index.html" class="footer-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Brand Logo"></a>
+                                <a href="{{route('home')}}" class="footer-logo"><img src="{{asset('images/logo/logo-main.png')}}" alt="Brand Logo"></a>
                                 <p>Pesco is an exciting International brand we provide high quality cloths</p>
                                 <ul class="ct-info-list mb-30">
                                     <li>
@@ -501,5 +478,18 @@
 <script src="{{asset('vendor/aos/aos.js')}}"></script>
 <!--====== Main js ======-->
 <script src="{{asset('js/web/theme.js')}}"></script>
+
+
+<script>
+    $(document).on('change', '#role', () => {
+        let role = $('#role').val();
+        if (role === 'seller') {
+            $('#shop_name_container').removeClass('d-none');
+        } else {
+            $('#shop_name_container').addClass('d-none');
+        }
+    });
+
+</script>
 </body>
 </html>
