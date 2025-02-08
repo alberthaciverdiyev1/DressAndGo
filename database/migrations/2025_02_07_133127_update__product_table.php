@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->id();
             $table->string('title');
             $table->text('short_description')->nullable();
             $table->text('long_description')->nullable();
@@ -33,8 +32,7 @@ return new class extends Migration
             $table->string('origin_country')->nullable();
             $table->boolean('is_on_sale')->default(false);
             $table->decimal('sale_percentage', 5, 2)->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->after('created_at');
         });
     }
 
