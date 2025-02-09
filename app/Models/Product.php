@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Size;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -29,10 +30,25 @@ class Product extends Model
         'is_on_sale',
         'sale_percentage',
     ];
+    protected $casts = [
+        'tags' => 'array',
+        'sizes' => 'array',
+        'features' => 'array',
+    ];
 
     public function colors()
     {
         return $this->belongsToMany(Color::class, 'color_product');
+    }
+    public function sizes(){
+        return $this->belongsToMany(Size::class, 'size_product');
+    }
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_product');
+    }
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'image');
     }
 
 }

@@ -33,6 +33,7 @@ return new class extends Migration
             $table->boolean('is_on_sale')->default(false);
             $table->decimal('sale_percentage', 5, 2)->nullable();
             $table->softDeletes()->after('created_at');
+            $table->softDeletes()->after('updated_at');
         });
     }
 
