@@ -186,16 +186,17 @@
                             </div>
                         </div>
                         <div class="row">
+                            @forelse($products as $product)
                             <div class="col-xl-4 col-md-6 col-sm-12">
                                 <!--=== Product Item  ===-->
                                 <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="25"
                                      data-aos-duration="400">
                                     <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/feature-product-2.png')}}" alt="Products">
+                                        <img src="{{$product["images"][0]}}" alt="Products">
                                         <div class="discount">10% Off</div>
                                         <div class="hover-content">
                                             <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/feature-product-2.png')}}"
+                                            <a href="{{$product["images"][0]}}"
                                                class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
                                         </div>
                                         <div class="cart-button">
@@ -213,312 +214,19 @@
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><a href="#">(65)</a></li>
                                             </ul>
-                                            <h4 class="title"><a href="shop-details.html">Lightweight linen summer dress
-                                                    with belt</a></h4>
+                                            <h4 class="title">
+                                                <a href="{{ route('shopDetails', ['id' => $product['id']]) }}">{{ $product['title'] }}</a>
+                                            </h4>
                                         </div>
                                         <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>80.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>40.00</span>
+                                            <span class="price prev-price"><span class="currency">$</span>{{$product['price']}}</span>
+                                            <span class="price new-price"><span class="currency">$</span>{{$product['discounted_price']}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="30"
-                                     data-aos-duration="600">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-1.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(20)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Cozy knit sweater with
-                                                    pockets</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>50.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>20.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="35"
-                                     data-aos-duration="800">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(36)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Athletic leggings with mesh
-                                                    panels</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>70.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>40.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="40"
-                                     data-aos-duration="1000">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(33)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Classic leather biker jacket
-                                                    with zippers</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>85.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>35.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="45"
-                                     data-aos-duration="1200">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(15)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Floral print sundress with
-                                                    adjustable straps</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>67.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>26.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="50"
-                                     data-aos-duration="1400">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(30)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Relaxed fit denim jeans with
-                                                    distressing</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>50.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>30.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="55"
-                                     data-aos-duration="1600">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(45)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Cargo shorts with pockets and
-                                                    drawstring</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>40.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>20.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="60"
-                                     data-aos-duration="1800">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(80)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Elegant silk dress with
-                                                    sequins</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>89.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>34.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <!--=== Product Item  ===-->
-                                <div class="product-item style-one mb-40" data-aos="fade-up" data-aos-delay="65"
-                                     data-aos-duration="2000">
-                                    <div class="product-thumbnail">
-                                        <img src="{{asset('images/products/product-5.png')}}" alt="Products">
-                                        <div class="discount">10% Off</div>
-                                        <div class="hover-content">
-                                            <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
-                                            <a href="{{asset('images/products/product-5.png')}}"
-                                               class="img-popup icon-btn"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                        <div class="cart-button">
-                                            <a href="#" class="cart-btn"><i class="far fa-shopping-basket"></i> <span
-                                                    class="text">Add To Cart</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-info-wrap">
-                                        <div class="product-info">
-                                            <ul class="ratings rating5">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><a href="#">(80)</a></li>
-                                            </ul>
-                                            <h4 class="title"><a href="shop-details.html">Cashmere v-neck sweater with
-                                                    ribbed cuffs</a></h4>
-                                        </div>
-                                        <div class="product-price">
-                                            <span class="price prev-price"><span class="currency">$</span>56.00</span>
-                                            <span class="price new-price"><span class="currency">$</span>07.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @empty
+                            @endforelse
                         </div>
                         <div class="row">
                             <div class="col-lg-12">

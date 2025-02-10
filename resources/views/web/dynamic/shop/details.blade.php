@@ -40,45 +40,28 @@
                         <!--=== Product Gallery ===-->
                         <div class="product-gallery-area mb-50" data-aos="fade-up" data-aos-duration="1200">
                             <div class="product-big-slider mb-30">
+                                @forelse($product['images'] as $image)
                                 <div class="product-img">
-                                    <a href="{{asset('images/products/product-big-1.jpg')}}" class="img-popup"><img src="{{asset('images/products/product-big-1.jpg')}}" alt="Product"></a>
+                                    <a href="{{$image}}" class="img-popup"><img src="{{$image}}" alt="Product"></a>
                                 </div>
-                                <div class="product-img">
-                                    <a href="{{asset('images/products/product-big-1.jpg')}}" class="img-popup"><img src="{{asset('images/products/product-big-1.jpg')}}" alt="Product"></a>
-                                </div>
-                                <div class="product-img">
-                                    <a href="{{asset('images/products/product-big-1.jpg')}}" class="img-popup"><img src="{{asset('images/products/product-big-1.jpg')}}" alt="Product"></a>
-                                </div>
-                                <div class="product-img">
-                                    <a href="{{asset('images/products/product-big-1.jpg')}}" class="img-popup"><img src="{{asset('images/products/product-big-1.jpg')}}" alt="Product"></a>
-                                </div>
-                                <div class="product-img">
-                                    <a href="{{asset('images/products/product-big-1.jpg')}}" class="img-popup"><img src="{{asset('images/products/product-big-1.jpg')}}" alt="Product"></a>
-                                </div>
+                                @empty
+                                @endforelse
                             </div>
                             <div class="product-thumb-slider">
+                                @forelse($product['images'] as $image)
+
                                 <div class="product-img">
-                                    <img src="{{asset('images/products/product-thumb-5.jpg')}}" alt="Product">
+                                    <img src="{{$image}}" alt="Product">
                                 </div>
-                                <div class="product-img">
-                                    <img src="{{asset('images/products/product-thumb-5.jpg')}}" alt="Product">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{asset('images/products/product-thumb-5.jpg')}}" alt="Product">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{asset('images/products/product-thumb-5.jpg')}}" alt="Product">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{asset('images/products/product-thumb-5.jpg')}}" alt="Product">
-                                </div>
+                                @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="product-info mb-50" data-aos="fade-up" data-aos-duration="1400">
                             <span class="sale"><i class="fas fa-tags"></i>SALE 70% OFF</span>
-                            <h4 class="title">Cargo shorts with pockets & sundress drawstring </h4>
+                            <h4 class="title">{{$product['title']}} </h4>
                             <ul class="ratings rating5">
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>

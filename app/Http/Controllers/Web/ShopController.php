@@ -15,12 +15,16 @@ class ShopController
         $categories = $response->successful() ? $response->json()['data'] : [];
         $response = Http::get(url('/api/v1/color'));
         $colors = $response->successful() ? $response->json()['data'] : [];
-        return view('web.dynamic.shop.list', compact(['brands', 'categories', 'colors']));
+        $response = Http::get(url('/api/v1/shop'));
+        $products = $response->successful() ? $response->json()['data'] : [];
+        return view('web.dynamic.shop.list', compact(['brands', 'categories', 'colors','products']));
     }
 
-    public function details()
+    public function details($id)
     {
-        return view('web.dynamic.shop.details');
+        $response = Http::get(url("/api/v1/shop/{$id}"));
+        $product = $response->successful() ? $response->json()['data'] : [];
+        return view('web.dynamic.shop.details', compact(['product']));
     }
 
     public function cart()

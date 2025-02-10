@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use App\Enums\Size;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use HasFactory;
+
     protected $table = 'products';
 
     protected $fillable = [
@@ -40,15 +43,20 @@ class Product extends Model
     {
         return $this->belongsToMany(Color::class, 'color_product');
     }
-    public function sizes(){
+
+    public function sizes()
+    {
         return $this->belongsToMany(Size::class, 'size_product');
     }
-    public function categories(){
+
+    public function categories()
+    {
         return $this->belongsToMany(Category::class, 'category_product');
     }
+
     public function images()
     {
-        return $this->belongsToMany(Image::class, 'image');
+        return $this->hasMany(Image::class, 'product_id');
     }
 
 }

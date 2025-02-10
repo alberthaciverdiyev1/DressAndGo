@@ -130,7 +130,9 @@ class ProductResource extends Resource
                                 Forms\Components\FileUpload::make('images')
                                     ->multiple()
                                     ->required()
-                                    ->image(),
+                                    ->image()
+                                    ->disk('public')
+                                ->directory('products'),
                             ]),
                     ])->columnSpanFull(),
             ]);
@@ -189,6 +191,7 @@ class ProductResource extends Resource
             ->filters([
                 //
             ])
+            ->defaultSort('created_at', 'desc')
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
