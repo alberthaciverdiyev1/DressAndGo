@@ -193,7 +193,12 @@
                                      data-aos-duration="400">
                                     <div class="product-thumbnail">
                                         <img src="{{$product["images"][0]}}" alt="Products">
-                                        <div class="discount">10% Off</div>
+                                        @php
+                                            $discount = round((($product['price'] - $product['discounted_price']) / $product['price']) * 100);
+                                        @endphp
+                                            @if($discount)
+                                        <div class="discount">{{ $discount }}% Off</div>
+                                        @endif
                                         <div class="hover-content">
                                             <a href="#" class="icon-btn"><i class="fa fa-heart"></i></a>
                                             <a href="{{$product["images"][0]}}"

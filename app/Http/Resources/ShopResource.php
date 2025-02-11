@@ -20,8 +20,16 @@ class ShopResource extends JsonResource
             'images' => $this->images->map(function ($image) {
                 return '/storage/' . $image->image;
             })->toArray(),
-            'price'=>$this->price,
-            'discounted_price'=>$this->discounted_price
+            'price' => $this->price,
+            'discounted_price' => $this->discounted_price,
+            'sizes' => $this->sizes,
+            'short_description' => $this->short_description,
+            'long_description' => $this->long_description,
+            'colors' => $this->colors,
+            'SKU' => $this->sku,
+            'tags' => $this->tags,
+            'category' => $this->category,
+
 
         ];
     }

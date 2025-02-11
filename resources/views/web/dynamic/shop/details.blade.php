@@ -60,7 +60,12 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="product-info mb-50" data-aos="fade-up" data-aos-duration="1400">
-                            <span class="sale"><i class="fas fa-tags"></i>SALE 70% OFF</span>
+                            @php
+                                $discount = round((($product['price'] - $product['discounted_price']) / $product['price']) * 100);
+                            @endphp
+                            @if($discount)
+                            <span class="sale"><i class="fas fa-tags"></i>SALE {{$discount}}% OFF</span>
+                            @endif
                             <h4 class="title">{{$product['title']}} </h4>
                             <ul class="ratings rating5">
                                 <li><i class="fas fa-star"></i></li>
@@ -70,11 +75,12 @@
                                 <li><i class="fas fa-star"></i></li>
                                 <li><a href="#">(45 Reviews)</a></li>
                             </ul>
-                            <p>A type of casual shorts, typically for men, with multiple pockets for function.
-                                Sundress with drawstring: A loose-fitting, sleeveless dress, often for women, with a drawstring at the waist for adjustability and a relaxed silhouette.</p>
+                            <p>{{$product['short_description']}}</p>
                             <div class="product-price">
-                                <span class="price prev-price"><span class="currency">$</span>70.00</span>
-                                <span class="price new-price"><span class="currency">$</span>40.00</span>
+                                <span class="price prev-price"><span class="currency">$</span>{{$product['price']}}</span>
+                                @if($product['discounted_price'])
+                                <span class="price new-price"><span class="currency">$</span>{{$product['discounted_price']}}</span>
+                                @endif
                             </div>
                             <div class="product-color">
                                 <h4 class="mb-15">Color</h4>
@@ -116,46 +122,17 @@
                             <div class="product-size">
                                 <h4 class="mb-15">Size</h4>
                                 <ul class="size-list mb-30">
+                                    @forelse($product['sizes'] as $size)
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="radio" value="Slim Fit" id="size2">
                                             <label class="form-check-label" for="size2">
-                                                S
+                                                {{$size}}
                                             </label>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="Slim Fit" id="size3">
-                                            <label class="form-check-label" for="size3">
-                                                M
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="Slim Fit" id="size4">
-                                            <label class="form-check-label" for="size4">
-                                                L
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="Slim Fit" id="size5">
-                                            <label class="form-check-label" for="size5">
-                                                XL
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="Slim Fit" id="size6">
-                                            <label class="form-check-label" for="size6">
-                                                2XL
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @empty
+                                    @endforelse
                                 </ul>
                             </div>
                             <div class="product-cart-variation">
@@ -180,9 +157,13 @@
                             </div>
                             <div class="product-meta">
                                 <ul>
-                                    <li><span>SKU :</span>KE-91039</li>
-                                    <li><span>Category :</span>Women Cloths</li>
-                                    <li><span>Tags :</span><a href="#">Bags</a>,<a href="#">Cloths</a>,<a href="#">Dress</a></li>
+                                    <li><span>SKU :</span>{{$product['SKU']}}</li>
+                                    <li><span>Category :</span>{{$product['category']}}</li>
+                                    <li><span>Tags :</span>
+                                    @forelse($product['tags'] as $tag)
+                                            <a href="#">{{$tag}}</a>
+                                        @empty
+                                    @endforelse</li>
                                     <li><span>Share :</span>
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -229,8 +210,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade active show" id="description">
                                         <h4>Description</h4>
-                                        <p>Cargo shorts: Rugged, casual shorts with multiple pockets for utility, often in khaki or olive green.
-                                            Sundress with drawstring: A breezy, summery dress with a flowy skirt, often made from light, patterned fabric. It has a drawstring waist for a comfortable, adjustable fit. Designed for practicality, cargo shorts boast numerous pockets on the legs and hips. everyday wear for someone who needs to carry a lot.</p>
+                                        <p>{{$product['long_description']}}</p>
                                         <h4>Features</h4>
                                         <ul class="list">
                                             <li>Function First</li>
