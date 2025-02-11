@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Enums\Size;
 use App\Filament\Admin\Resources\ProductResource\Pages;
 use App\Filament\Admin\Resources\ProductResource\RelationManagers;
+use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use Filament\Forms;
@@ -60,9 +61,10 @@ class ProductResource extends Resource
                                     ->label('SKU')
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\TextInput::make('category')
-                                    ->required()
-                                    ->maxLength(255),
+                                Forms\Components\Select::make('category')
+                                    ->label('Category')
+                                    ->options(fn() => Category::pluck('name', 'id')->toArray())
+                                    ->required(),
                             ]),
 
                         Forms\Components\Tabs\Tab::make('Features')
@@ -79,7 +81,7 @@ class ProductResource extends Resource
 
                                 Forms\Components\Select::make('sizes')
                                     ->options(fn() => collect(Size::cases())
-                                        ->mapWithKeys(fn($size) => [$size->value => $size->name])
+                                        ->mapWithKeys(fn($size) => [$size->value => $size->value])
                                         ->toArray())
                                     ->columnSpanFull()
                                     ->required()
@@ -147,14 +149,6 @@ class ProductResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
@@ -167,20 +161,6 @@ class ProductResource extends Resource
                     ->label('SKU')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('category')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('fabric_type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('care_instructions')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('occasion_type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sleeve_type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('pattern')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('closure_type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('origin_country')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_on_sale')
                     ->boolean(),
@@ -204,7 +184,8 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+          RelationManagers\ImagesRelationManager::class,
+          RelationManagers\ColorRelationManager::class
         ];
     }
 

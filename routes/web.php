@@ -16,9 +16,9 @@ Route::get('logs', [LogViewerController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/contact', [StaticPageController::class, 'contact'])->name('contact');
-Route::get('/login', [StaticPageController::class, 'login'])->name('login');
-Route::get('/register', [StaticPageController::class, 'register'])->name('register');
-Route::prefix('shop')->group(function () {
+Route::match(['get','post'],'/login', [StaticPageController::class, 'login'])->name('login');
+Route::match(['get','post'],'/register', [StaticPageController::class, 'register'])->name('register');
+Route::prefix('rent')->group(function () {
     Route::get('/', [ShopController::class, 'shop'])->name('shopList');
     Route::get('/details/{id}', [ShopController::class, 'details'])->name('shopDetails');
     Route::get('/cart', [ShopController::class, 'cart'])->name('cart');

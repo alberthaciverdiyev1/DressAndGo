@@ -275,7 +275,6 @@
                             <nav class="main-menu d-none d-lg-block">
                                 <ul>
                                     <li class="menu-item"><a href="{{route('home')}}">Home</a>  </li>
-                                    <li class="menu-item"><a href="{{route('shopList')}}">Shop</a>   </li>
                                     <li class="menu-item"><a href="{{route('shopList')}}">Rent</a>   </li>
                                     <li class="menu-item"><a href="{{route('home')}}">Blog</a>   </li>
                                     <li class="menu-item"><a href="{{route('home')}}">About Us</a>   </li>
@@ -491,5 +490,6 @@
     });
 
 </script>
+@stack('script')
 </body>
 </html>

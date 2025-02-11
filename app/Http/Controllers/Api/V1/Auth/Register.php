@@ -24,7 +24,7 @@ class Register
             'password' => Hash::make($validatedData['password']),
         ]);
 
-        if (isset($validatedData['role']) || $validatedData['role'] == 'seller') {
+        if (isset($validatedData['role']) && $validatedData['role'] == 'seller') {
             $user->assignRole('seller');
         }else{
             $user->assignRole('user');

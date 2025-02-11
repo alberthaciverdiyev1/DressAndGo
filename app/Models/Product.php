@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Size;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -39,11 +40,11 @@ class Product extends Model
         'features' => 'array',
     ];
 
-    public function colors()
+    public function colors(): BelongsToMany
     {
-        return $this->belongsToMany(Color::class, 'color_product');
+        return $this->belongsToMany(Color::class, 'color_product')
+            ->withTimestamps();
     }
-
     public function sizes()
     {
         return $this->belongsToMany(Size::class, 'size_product');

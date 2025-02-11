@@ -17,29 +17,29 @@ class ShopController
         $colors = $response->successful() ? $response->json()['data'] : [];
         $response = Http::get(url('/api/v1/shop'));
         $products = $response->successful() ? $response->json()['data'] : [];
-        return view('web.dynamic.shop.list', compact(['brands', 'categories', 'colors','products']));
+        return view('web.dynamic.rent.list', compact(['brands', 'categories', 'colors','products']));
     }
 
     public function details($id)
     {
         $response = Http::get(url("/api/v1/shop/{$id}"));
         $product = $response->successful() ? $response->json()['data'] : [];
-        return view('web.dynamic.shop.details', compact(['product']));
+        return view('web.dynamic.rent.details', compact(['product']));
     }
 
     public function cart()
     {
-        return view('web.dynamic.shop.cart');
+        return view('web.dynamic.rent.cart');
     }
 
     public function checkout()
     {
-        return view('web.dynamic.shop.checkout');
+        return view('web.dynamic.rent.checkout');
     }
 
     public function wishlist()
     {
-        return view('web.dynamic.shop.wishlist');
+        return view('web.dynamic.rent.wishlist');
     }
 
 }
