@@ -15,11 +15,9 @@ class Register
 
     public function register(RegisterRequest $request):JsonResponse
     {
-
         $validatedData = $request->validated();
-
         $user = User::create([
-            'name' => $validatedData['name'],
+            'name' => $validatedData['name'] ?? null,
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
         ]);

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--====== Title ======-->
     <title>Shared on THEMELOCK.COM - Pesco - eCommerce HTML Template</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" type="image/png">
     <!--====== Google Fonts ======-->
@@ -478,18 +479,6 @@
 <!--====== Main js ======-->
 <script src="{{asset('js/web/theme.js')}}"></script>
 
-
-<script>
-    $(document).on('change', '#role', () => {
-        let role = $('#role').val();
-        if (role === 'seller') {
-            $('#shop_name_container').removeClass('d-none');
-        } else {
-            $('#shop_name_container').addClass('d-none');
-        }
-    });
-
-</script>
 @stack('script')
 </body>
 </html>

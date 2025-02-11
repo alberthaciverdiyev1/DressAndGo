@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use function Pest\Laravel\json;
 
 class StaticPageController
 {
@@ -25,14 +26,29 @@ class StaticPageController
                 $data = $response->json();
 
                 if ($response->successful() && isset($data['success']) && $data['success']) {
-                    Session::put('api_token', $data['token']);
-                    Session::put('user', $data['user']);
-                    return redirect()->route('dashboard')->with('success', 'Login successful!');
+                    Auth::loginUsingId($data['user']['id']);
+                    session(['api_token' => $data['token']]);
+                    session(['user' => $data['user']]);
+                    session()->save();
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'You are logged in',
+                        'data' => []
+                    ]);
                 } else {
-                    return back()->with('error', $data['message'] ?? 'Login failed!');
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Login failed!',
+                        'data' => $data['message']
+                    ]);
                 }
             } catch (\Exception $e) {
-                return back()->with('error', 'Something went wrong! ' . $e->getMessage());
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Something went wrong!',
+                    'data' => $e->getMessage()
+                ]);
             }
         }
 
@@ -42,19 +58,10 @@ class StaticPageController
     public function register(Request $request)
     {
         if ($request->isMethod('post')) {
-            $credentials = $request->safe();
+            $data = $request->only('email', 'password','confirm_password', 'age', 'role');
+            $response = Http::post(env('APP_URL') . '/api/v1/register', $data);
 
-            if (Auth::attempt($credentials, $request->remember)) {
-                return response()->json([
-                    'success' => true,
-                    'redirect_url' => route('dashboard')
-                ]);
-            }
-
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid email or password.'
-            ]);
+            return $response->json();
         }
 
         return view('web.static.auth.register');
