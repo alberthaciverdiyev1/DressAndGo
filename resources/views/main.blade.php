@@ -149,42 +149,42 @@
                 <!--=== Nav Inner Menu ===-->
                 <div class="nav-inner-menu">
                     <!--=== Main Category ===-->
-                    <div class="main-categories-wrap d-none d-lg-block">
-                        <a class="categories-btn-active" href="#">
-                            <span class="fas fa-list"></span><span class="text">Products Category<i class="fas fa-angle-down"></i></span>
-                        </a>
-                        <div class="categories-dropdown-wrap categories-dropdown-active">
-                            <div class="categori-dropdown-item">
-                                <ul>
-                                    <li>
-                                        <a href="shops.html"> <img src="{{asset(('images/icon/shirt.png'))}}" alt="Shirts">Man Shirts</a>
-                                    </li>
-                                    <li>
-                                        <a href="shops.html"> <img src="{{asset('images/icon/denim.png')}}" alt="Jeans">Denim Jeans</a>
-                                    </li>
-                                    <li>
-                                        <a href="shops.html"> <img src="{{asset('images/icon/suit.png')}}" alt="Suit">Casual Suit</a>
-                                    </li>
-                                    <li>
-                                        <a href="shops.html"> <img src="{{asset('images/icon/dress.png')}}" alt="Dress">Summer Dress</a>
-                                    </li>
-                                    <li>
-                                        <a href="shops.html"> <img src="{{asset('images/icon/sweaters.png')}}" alt="Sweaters">Sweaters</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="more_slide_open">
-                                <div class="categori-dropdown-item">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><img src="{{asset('images/icon/jacket.png')}}" alt="Jackets">Jackets</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="more_categories"><span class="icon"></span> <span>Show more...</span></div>
-                        </div>
-                    </div>
+{{--                    <div class="main-categories-wrap d-none d-lg-block">--}}
+{{--                        <a class="categories-btn-active" href="#">--}}
+{{--                            <span class="fas fa-list"></span><span class="text">Products Category<i class="fas fa-angle-down"></i></span>--}}
+{{--                        </a>--}}
+{{--                        <div class="categories-dropdown-wrap categories-dropdown-active">--}}
+{{--                            <div class="categori-dropdown-item">--}}
+{{--                                <ul>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="shops.html"> <img src="{{asset(('images/icon/shirt.png'))}}" alt="Shirts">Man Shirts</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="shops.html"> <img src="{{asset('images/icon/denim.png')}}" alt="Jeans">Denim Jeans</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="shops.html"> <img src="{{asset('images/icon/suit.png')}}" alt="Suit">Casual Suit</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="shops.html"> <img src="{{asset('images/icon/dress.png')}}" alt="Dress">Summer Dress</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="shops.html"> <img src="{{asset('images/icon/sweaters.png')}}" alt="Sweaters">Sweaters</a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                            <div class="more_slide_open">--}}
+{{--                                <div class="categori-dropdown-item">--}}
+{{--                                    <ul>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="#"><img src="{{asset('images/icon/jacket.png')}}" alt="Jackets">Jackets</a>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="more_categories"><span class="icon"></span> <span>Show more...</span></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <!--=== Pesco Nav Main ===-->
                     <div class="pesco-nav-main">
                         <!--=== Pesco Nav Menu ===-->

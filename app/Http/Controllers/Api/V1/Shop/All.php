@@ -10,7 +10,7 @@ class All
     public function getAll()
     {
         $products = Product::query()
-            ->with('images')
+            ->with(['images','colors'])
             ->get();
 
         return ShopResource::collection($products);

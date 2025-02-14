@@ -85,30 +85,7 @@
                             <div class="product-color">
                                 <h4 class="mb-15">Color</h4>
                                 <ul class="color-list mb-20">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="black" id="color1">
-                                            <label class="form-check-label" for="color1">
-                                                <span class="color1"></span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="red" id="color2">
-                                            <label class="form-check-label" for="color2">
-                                                <span class="color2"></span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio" value="blue" id="color3">
-                                            <label class="form-check-label" for="color3">
-                                                <span class="color3"></span>
-                                            </label>
-                                        </div>
-                                    </li>
+
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="radio" value="blue" id="color4">
@@ -117,6 +94,19 @@
                                             </label>
                                         </div>
                                     </li>
+
+{{--                                    @forelse($product['colors'] as $color)--}}
+{{--                                        <li>--}}
+{{--                                            <div class="form-check">--}}
+{{--                                                <input class="form-check-input" type="radio" name="radio"--}}
+{{--                                                       value="{{ $color['code'] }}" id="{{ 'color_'.$color['id'] }}">--}}
+{{--                                                <label class="form-check-label" for="{{ 'color_'.$color['id'] }}">--}}
+{{--                                                    <span class="color-box" style="background-color: {{ $color['code'] }};"></span>--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                        </li>--}}
+{{--                                    @empty--}}
+{{--                                    @endforelse--}}
                                 </ul>
                             </div>
                             <div class="product-size">
@@ -138,20 +128,10 @@
                             <div class="product-cart-variation">
                                 <ul>
                                     <li>
-                                        <div class="quantity-input">
-                                            <button class="quantity-down"><i class="far fa-minus"></i></button>
-                                            <input class="quantity" type="text" value="1" name="quantity">
-                                            <button class="quantity-up"><i class="far fa-plus"></i></button>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <a href="shops.html" class="theme-btn style-one">Add To cart</a>
                                     </li>
                                     <li>
                                         <a href="shops.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="shops.html" class="icon-btn"><i class="far fa-sync"></i></a>
                                     </li>
                                 </ul>
                             </div>

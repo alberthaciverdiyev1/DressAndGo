@@ -42,7 +42,7 @@ class Product extends Model
 
     public function colors(): BelongsToMany
     {
-        return $this->belongsToMany(Color::class, 'color_product')
+        return $this->belongsToMany(Color::class, 'color_product', 'product_id', 'color_id')
             ->withTimestamps();
     }
     public function sizes()
@@ -50,14 +50,17 @@ class Product extends Model
         return $this->belongsToMany(Size::class, 'size_product');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, 'category_product');
+        return $this->belongsTo(Category::class,'categories');
     }
 
     public function images()
     {
         return $this->hasMany(Image::class, 'product_id');
+    }
+    public function brand(){
+        return $this->belongsTo(Brand::class);
     }
 
 }
