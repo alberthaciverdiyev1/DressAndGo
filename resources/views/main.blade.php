@@ -33,6 +33,14 @@
     <link rel="stylesheet" href="{{asset('css/web/default.css')}}">
     <!--====== Style css ======-->
     <link rel="stylesheet" href="{{asset('css/web/style.css')}}">
+    <style>
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <!--====== Preloader ======-->
@@ -276,7 +284,18 @@
                             <nav class="main-menu d-none d-lg-block">
                                 <ul>
                                     <li class="menu-item"><a href="{{route('home')}}">Home</a>  </li>
-                                    <li class="menu-item"><a href="{{route('shopList')}}">Rent</a>   </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="{{ route('shopList') }}" id="navbarDropdown" role="button" aria-expanded="false">
+                                            Rent
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="#">Toy geyimləri</a></li>
+                                            <li><a class="dropdown-item" href="#">Gəlinlik</a></li>
+                                            <li><a class="dropdown-item" href="#">Milli paltarlar</a></li>
+                                            <li><a class="dropdown-item" href="#">Gündəlik geyimlər</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="menu-item"><a href="{{route('home')}}">Blog</a>   </li>
                                     <li class="menu-item"><a href="{{route('home')}}">About Us</a>   </li>
                                     <li class="menu-item"><a href="{{route('contact')}}">Contact</a></li>
